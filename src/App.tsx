@@ -21,6 +21,8 @@ import { TimerControls } from './components/TimerControls'
 import { CreditSection } from './components/CreditSection'
 import { CreditModal } from './components/CreditModal'
 
+import { SiteFooter } from './components/SiteFooter'
+
 function formatTime(seconds: number): string {
   const safeSeconds =
     Math.max(0, Math.ceil(seconds))
@@ -269,6 +271,8 @@ return (
             onOpen={setSelectedCreditMap}
         />
         </div>
+
+        <SiteFooter />
 
         <CreditModal
         map={selectedCreditMap}

@@ -32,7 +32,7 @@ export function WildlifeMap({
       "
       style={{
         width:
-          'min(780px, calc((100vh - 280px) * 750 / 720))',
+          'min(780px, calc((100vh - 320px) * 750 / 720))',
       }}
     >
       {!failed && (
