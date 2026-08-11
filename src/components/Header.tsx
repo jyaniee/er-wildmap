@@ -15,8 +15,13 @@ async function toggleFullscreen(): Promise<void> {
   await document.documentElement.requestFullscreen()
 }
 
+interface HeaderProps {
+    onOpenAbout: () => void
+}
 
-export function Header() {
+export function Header({
+  onOpenAbout,
+}: HeaderProps) {
   return (
     <header
       className="
@@ -34,15 +39,15 @@ export function Header() {
         "
       >
         <img
-            src={appIcon}
-            alt=""
-            aria-hidden="true"
-            className="
-                size-11
-                shrink-0
-                object-contain
-            "
-            />
+          src={appIcon}
+          alt=""
+          aria-hidden="true"
+          className="
+            size-11
+            shrink-0
+            object-contain
+          "
+        />
 
         <div>
           <p
@@ -94,29 +99,80 @@ export function Header() {
         </div>
       </div>
 
-      {/* 전체화면 */}
-      <button
-        type="button"
-        title="Fullscreen"
-        onClick={() => void toggleFullscreen()}
+      {/* About + 전체화면 */}
+      <div
         className="
           flex
-          size-10
           items-center
-          justify-center
-          rounded-lg
-          border
-          border-[#303640]
-          bg-[#171b21]
-          text-xl
-          text-[#dce1e8]
-          transition
-          hover:border-[#505966]
-          hover:bg-[#20252d]
+          gap-2
         "
       >
-        ⛶
-      </button>
+        {/* About */}
+        <button
+          type="button"
+          title="About"
+          aria-label="About"
+          onClick={onOpenAbout}
+          className="
+            flex
+            size-10
+            items-center
+            justify-center
+            rounded-lg
+            border
+            border-[#303640]
+            bg-[#171b21]
+            text-[#dce1e8]
+            transition
+            hover:border-[#505966]
+            hover:bg-[#20252d]
+          "
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="size-5"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="9"
+            />
+            <path d="M12 11v5" />
+            <path d="M12 8h.01" />
+          </svg>
+        </button>
+
+        {/* 전체화면 */}
+        <button
+          type="button"
+          title="Fullscreen"
+          aria-label="Fullscreen"
+          onClick={() => void toggleFullscreen()}
+          className="
+            flex
+            size-10
+            items-center
+            justify-center
+            rounded-lg
+            border
+            border-[#303640]
+            bg-[#171b21]
+            text-xl
+            text-[#dce1e8]
+            transition
+            hover:border-[#505966]
+            hover:bg-[#20252d]
+          "
+        >
+          ⛶
+        </button>
+      </div>
     </header>
   )
 }

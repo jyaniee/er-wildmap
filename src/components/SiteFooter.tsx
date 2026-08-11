@@ -20,6 +20,9 @@ export function SiteFooter() {
       <p>
         Nimble Neuron과 제휴하거나 공식적으로 지원받는 서비스가 아닙니다.
       </p>
+      <p className="mt-3 text-[11px] text-[#59616c]">
+        Developed by Jyanie
+      </p>
     </footer>
   )
 }

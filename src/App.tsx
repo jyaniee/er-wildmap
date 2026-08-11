@@ -25,6 +25,8 @@ import { SiteFooter } from './components/SiteFooter'
 
 import { SideGuide } from './components/SideGuide'
 
+import { AboutModal } from './components/AboutModal'
+
 function formatTime(seconds: number): string {
   const safeSeconds =
     Math.max(0, Math.ceil(seconds))
@@ -70,6 +72,8 @@ export default function App() {
       setSelectedCreditMap(null)
     }, [])
 
+  const [aboutOpen, setAboutOpen] = useState(false)
+
   const state =
     getPhaseState(elapsed)
 
@@ -85,7 +89,6 @@ export default function App() {
             phase.duration
           ) * 100,
         )
-
   useEffect(() => {
     const handleKeyDown = (
       event: KeyboardEvent,
@@ -186,7 +189,7 @@ return (
             gap-[18px]
             "
         >
-            <Header />
+            <Header onOpenAbout={() => setAboutOpen(true)} />
 
             <PhaseStatus
             type={phase.type}
@@ -276,6 +279,11 @@ return (
         </div>
 
         <SiteFooter />
+
+        <AboutModal
+        open={aboutOpen}
+        onClose={() => setAboutOpen(false)}
+        />
 
         <CreditModal
         map={selectedCreditMap}
