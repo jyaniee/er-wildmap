@@ -1,4 +1,10 @@
-import { APP_NAME ,GAME_VERSION } from '../config/app'
+import {
+  APP_NAME,
+  GAME_VERSION,
+} from '../config/app'
+
+import appIcon from '../assets/erwildmap-icon-256.png'
+
 
 async function toggleFullscreen(): Promise<void> {
   if (document.fullscreenElement) {
@@ -9,6 +15,7 @@ async function toggleFullscreen(): Promise<void> {
   await document.documentElement.requestFullscreen()
 }
 
+
 export function Header() {
   return (
     <header
@@ -18,38 +25,57 @@ export function Header() {
         justify-between
       "
     >
-      <div>
-        <p
-          className="
-            m-0
-            text-[11px]
-            font-bold
-            tracking-[0.18em]
-            text-[#747c89]
-          "
-        >
-          ETERNAL RETURN
-        </p>
-
-        <div
+      {/* 로고 + 제목 */}
+      <div
+        className="
+          flex
+          items-center
+          gap-3
+        "
+      >
+        <img
+            src={appIcon}
+            alt=""
+            aria-hidden="true"
             className="
-                mt-1
-                flex
-                items-center
-                gap-3
+                size-11
+                shrink-0
+                object-contain
             "
-            >
+            />
+
+        <div>
+          <p
+            className="
+              m-0
+              text-[11px]
+              font-bold
+              tracking-[0.18em]
+              text-[#747c89]
+            "
+          >
+            ETERNAL RETURN
+          </p>
+
+          <div
+            className="
+              mt-1
+              flex
+              items-center
+              gap-3
+            "
+          >
             <h1
-                className="
+              className="
                 text-2xl
                 font-bold
-                "
+              "
             >
-                {APP_NAME}
+              {APP_NAME}
             </h1>
 
             <span
-                className="
+              className="
                 rounded-md
                 border
                 border-[#303640]
@@ -60,13 +86,15 @@ export function Header() {
                 font-bold
                 tracking-[0.1em]
                 text-[#7f8895]
-                "
+              "
             >
-                PATCH {GAME_VERSION}
+              PATCH {GAME_VERSION}
             </span>
-            </div>
+          </div>
+        </div>
       </div>
 
+      {/* 전체화면 */}
       <button
         type="button"
         title="Fullscreen"
