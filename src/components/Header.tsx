@@ -54,7 +54,7 @@ export function Header() {
               text-[#747c89]
             "
           >
-            ETERNAL RETURN LUMIA WILDMAP
+            ER WILDMAP
           </p>
 
           <div
