@@ -79,6 +79,24 @@ export function CreditSection({
           >
             1~2일차 지역별 크레딧 수급량
           </p>
+          <a
+            href="https://arca.live/b/bser/179199377"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+                mt-2
+                inline-block
+                text-[11px]
+                text-[#596675]
+                underline
+                decoration-[#3d4652]
+                underline-offset-2
+                transition-colors
+                hover:text-[#aeb7c4]
+            "
+            >
+            크레딧 지도 출처: Eternal Return 아카라이브
+            </a>
         </header>
 
         <div

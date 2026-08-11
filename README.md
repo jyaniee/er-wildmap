@@ -16,9 +16,9 @@ https://er-wildmap.vercel.app/
 
 ![ER Wildmap Main Preview](./docs/preview-1.png)
 
-### Credit Guide
+### Credit Map
 
-![ER Wildmap Credit Guide Preview](./docs/preview-2.png)
+![ER Wildmap Credit Map Preview](./docs/preview-2.png)
 
 ## Features
 
