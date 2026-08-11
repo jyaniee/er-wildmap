@@ -13,14 +13,15 @@ export function CreditCard({
 }: CreditCardProps) {
   return (
     <article
-      className="
-        overflow-hidden
-        rounded-xl
-        border
-        border-[#252932]
-        bg-[#111419]
-        p-[9px]
-      "
+        className="
+            overflow-hidden
+            rounded-xl
+            border
+            border-[#2d3440]
+            bg-[#111419]
+            p-3
+            shadow-[0_8px_30px_rgba(0,0,0,0.18)]
+        "
     >
       <div
         className="
@@ -31,18 +32,18 @@ export function CreditCard({
         "
       >
         <h3
-          className="
-            text-[13px]
-            font-bold
-            text-[#dce1e8]
-          "
-        >
-          {map.title}
+            className="
+                text-[15px]
+                font-extrabold
+                text-[#e8edf5]
+            "
+            >
+            {map.title}
         </h3>
 
         <span
           className="
-            text-[9px]
+            text-[10px]
             font-bold
             tracking-[0.1em]
             text-[#626a76]
@@ -81,41 +82,55 @@ export function CreditCard({
 
       <ol
         className="
-          mt-2
-          flex
-          list-none
-          flex-col
-          gap-1
-          p-0
-          text-[10px]
+            mt-3
+            flex
+            list-none
+            flex-col
+            gap-2
+            p-0
         "
       >
         {map.rankings.map(
           ({ rank, regions }) => (
             <li
-              key={`${rank}-${regions.join('-')}`}
-              className="
+            key={`${rank}-${regions.join('-')}`}
+            className="
                 flex
-                items-baseline
-                gap-[6px]
-                text-[#abb2bc]
-              "
+                items-center
+                gap-2
+                rounded-md
+                bg-[#171b21]
+                px-2
+                py-1.5
+            "
             >
-              <span
+            <span
                 className="
-                  min-w-[28px]
-                  shrink-0
-                  text-[9px]
-                  font-extrabold
-                  text-[#6f7884]
+                flex
+                min-w-[34px]
+                items-center
+                justify-center
+                rounded-md
+                bg-[#242a33]
+                px-2
+                py-1
+                text-[10px]
+                font-extrabold
+                text-[#8d98a8]
                 "
-              >
+            >
                 {rank}
-              </span>
+            </span>
 
-              <span>
+            <span
+                className="
+                text-[12px]
+                font-semibold
+                text-[#d6dce5]
+                "
+            >
                 {regions.join(' · ')}
-              </span>
+            </span>
             </li>
           ),
         )}

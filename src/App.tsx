@@ -18,7 +18,7 @@ import { Header } from './components/Header'
 import { PhaseStatus } from './components/PhaseStatus'
 import { WildlifeMap } from './components/WildlifeMap'
 import { TimerControls } from './components/TimerControls'
-import { CreditRail } from './components/CreditRail'
+import { CreditSection } from './components/CreditSection'
 import { CreditModal } from './components/CreditModal'
 
 function formatTime(seconds: number): string {
@@ -151,118 +151,71 @@ export default function App() {
     toggle,
   ])
 
-  return (
+return (
     <div
-      className="
+        className="
         min-h-screen
         min-w-[320px]
         bg-[radial-gradient(circle_at_top,#181d25_0,#0b0d10_55%)]
         font-sans
         text-[#f5f7fa]
-      "
-    >
-      {/*
-        중앙 앱 최대 1200px.
-
-        CreditRail은 absolute로
-        중앙 앱의 right-full / left-full에 배치.
-      */}
-      <div
-        className="
-          relative
-          mx-auto
-          min-h-screen
-          w-full
-          max-w-[1200px]
-          px-6
-          py-6
         "
-      >
-        {/* 왼쪽 실제 여백 */}
-        <aside
-          className="
-            absolute
-            right-full
-            top-[190px]
-            mr-6
-            hidden
-            w-[210px]
-            min-[1700px]:block
-          "
+    >
+        {/* 첫 화면: 기존 ER Wildmap UI */}
+        <div
+        className="
+            relative
+            mx-auto
+            min-h-screen
+            w-full
+            max-w-[1200px]
+            px-6
+            py-6
+        "
         >
-          <CreditRail
-            ids={[
-              'day1',
-              'night1',
-            ]}
-            onOpen={
-              setSelectedCreditMap
-            }
-          />
-        </aside>
-
-        {/* 기존 중앙 앱 */}
         <main
-          className="
+            className="
             flex
             min-h-[calc(100vh-48px)]
             flex-col
             gap-[18px]
-          "
+            "
         >
-          <Header />
+            <Header />
 
-          <PhaseStatus
+            <PhaseStatus
             type={phase.type}
             day={phase.day}
             remaining={formatTime(
-              state.remainingInPhase,
+                state.remainingInPhase,
             )}
             progress={progress}
             finished={state.finished}
-          />
+            />
 
-          <WildlifeMap
+            <WildlifeMap
             type={phase.type}
-          />
+            />
 
-          <TimerControls
+            <TimerControls
             running={running}
             elapsed={formatTime(elapsed)}
             onToggle={toggle}
             onReset={reset}
             onAdjust={adjust}
-          />
+            />
         </main>
+        </div>
 
-        {/* 오른쪽 실제 여백 */}
-        <aside
-          className="
-            absolute
-            left-full
-            top-[190px]
-            ml-6
-            hidden
-            w-[210px]
-            min-[1700px]:block
-          "
-        >
-          <CreditRail
-            ids={[
-              'day2',
-              'night2',
-            ]}
-            onOpen={
-              setSelectedCreditMap
-            }
-          />
-        </aside>
-      </div>
+        {/* 스크롤 아래쪽: 크레딧 지도 */}
+        <CreditSection
+        onOpen={setSelectedCreditMap}
+        />
 
-      <CreditModal
+        <CreditModal
         map={selectedCreditMap}
         onClose={closeCreditModal}
-      />
+        />
     </div>
-  )
+    )
 }
