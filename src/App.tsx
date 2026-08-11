@@ -23,6 +23,8 @@ import { CreditModal } from './components/CreditModal'
 
 import { SiteFooter } from './components/SiteFooter'
 
+import { SideGuide } from './components/SideGuide'
+
 function formatTime(seconds: number): string {
   const safeSeconds =
     Math.max(0, Math.ceil(seconds))
@@ -163,6 +165,7 @@ return (
         text-[#f5f7fa]
         "
     >
+        <SideGuide />
         {/* 첫 화면: 기존 ER Wildmap UI */}
         <div
         className="
