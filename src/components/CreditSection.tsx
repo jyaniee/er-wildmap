@@ -2,7 +2,7 @@ import {
   CREDIT_MAPS,
   type CreditMap,
 } from '../config/creditMaps'
-
+import { CREDIT_MAP_NAME } from '../config/app'
 import { CreditCard } from './CreditCard'
 
 interface CreditSectionProps {
@@ -32,6 +32,7 @@ export function CreditSection({
 
   return (
     <section
+      id="credit-map"
       className="
         border-t
         border-[#252932]
@@ -66,7 +67,7 @@ export function CreditSection({
               font-bold
             "
           >
-            Credit Map
+            {CREDIT_MAP_NAME}
           </h2>
 
           <p

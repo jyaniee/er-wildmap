@@ -205,12 +205,70 @@ return (
             onAdjust={adjust}
             />
         </main>
+
+        {/* 아래에 추가 콘텐츠가 있다는 표시 */}
+        <button
+            type="button"
+            onClick={() => {
+            document
+                .getElementById('credit-map')
+                ?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                })
+            }}
+            aria-label="크레딧 가이드로 이동"
+            className="
+            group
+            absolute
+            bottom-2
+            left-1/2
+            flex
+            -translate-x-1/2
+            flex-col
+            items-center
+            gap-0.5
+            text-[#68717e]
+            transition-colors
+            duration-200
+            hover:text-[#cbd2dc]
+            "
+        >
+            <span
+            className="
+                text-[9px]
+                font-bold
+                tracking-[0.18em]
+            "
+            >
+            CREDIT MAP
+            </span>
+
+            <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="
+                h-5
+                w-5
+                motion-safe:animate-bounce
+            "
+            aria-hidden="true"
+            >
+            <path d="m6 9 6 6 6-6" />
+            </svg>
+        </button>
         </div>
 
         {/* 스크롤 아래쪽: 크레딧 지도 */}
+        <div id="credit-map">
         <CreditSection
-        onOpen={setSelectedCreditMap}
+            onOpen={setSelectedCreditMap}
         />
+        </div>
 
         <CreditModal
         map={selectedCreditMap}

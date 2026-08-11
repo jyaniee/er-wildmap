@@ -1,3 +1,5 @@
+import { APP_NAME ,GAME_VERSION } from '../config/app'
+
 async function toggleFullscreen(): Promise<void> {
   if (document.fullscreenElement) {
     await document.exitFullscreen()
@@ -29,15 +31,40 @@ export function Header() {
           ETERNAL RETURN
         </p>
 
-        <h1
-          className="
-            mt-1
-            text-2xl
-            font-bold
-          "
-        >
-          ER Wildmap
-        </h1>
+        <div
+            className="
+                mt-1
+                flex
+                items-center
+                gap-3
+            "
+            >
+            <h1
+                className="
+                text-2xl
+                font-bold
+                "
+            >
+                {APP_NAME}
+            </h1>
+
+            <span
+                className="
+                rounded-md
+                border
+                border-[#303640]
+                bg-[#171b21]
+                px-2
+                py-1
+                text-[9px]
+                font-bold
+                tracking-[0.1em]
+                text-[#7f8895]
+                "
+            >
+                PATCH {GAME_VERSION}
+            </span>
+            </div>
       </div>
 
       <button
